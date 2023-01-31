@@ -1,6 +1,7 @@
 import React from "react";
 import GridItem from "../../gridItem/GrindItem";
-import './Grid';
+import './Grid.css'
+
 
 export default function Grid({itens, setItens}) {
 
@@ -12,13 +13,13 @@ export default function Grid({itens, setItens}) {
     
 
     return (
-        <div>
-            <table className="table">
+        <React.Fragment>
+            <table className="table" border={1}>
                 <thead>
                     <tr className="tr">
-                        <th>Descrição</th>
-                        <th>Valor</th>
-                        <th>Tipo</th>
+                        <th className="th">Descrição</th>
+                        <th className="th">Valor</th>
+                        <th className="th">Tipo</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -29,6 +30,6 @@ export default function Grid({itens, setItens}) {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </React.Fragment>
     )
 }

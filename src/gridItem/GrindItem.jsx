@@ -3,7 +3,7 @@ import './GridItem.css';
 import {FaRegArrowAltCircleDown, FaRegArrowAltCircleUp, FaTrash} from 'react-icons/fa';
 
 
-export default function GridItem(item, onDelete) {
+export default function GridItem({item, onDelete}) {
 
     const choiceIcon = item.expense ? <FaRegArrowAltCircleDown color="red"/> : <FaRegArrowAltCircleUp color="green"/>
 
