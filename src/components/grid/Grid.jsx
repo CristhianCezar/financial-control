@@ -1,16 +1,16 @@
 import React from "react";
-import GridItem from "../../gridItem/GrindItem";
 import './Grid.css'
+import GridItem from "../gridItem/GrindItem";
 
 
-export default function Grid({itens, setItens}) {
+export default function Grid({ itens, setItens }) {
 
     const onDelete = (ID) => {
         const newArray = itens.filter((transaction) => transaction.id !== ID);
         setItens(newArray);
         localStorage.setItem("transactions", JSON.stringify(newArray));
     };
-    
+
 
     return (
         <React.Fragment>
@@ -26,7 +26,7 @@ export default function Grid({itens, setItens}) {
 
                 <tbody className="tBody">
                     {itens?.map((item, i) => (
-                        <GridItem key={i} item={item} onDelete={onDelete}/>
+                        <GridItem key={i} item={item} onDelete={onDelete} />
                     ))}
                 </tbody>
             </table>
