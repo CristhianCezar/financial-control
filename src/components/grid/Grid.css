@@ -9,6 +9,19 @@
 }
 
 .th {
+    text-align: center;
     border-bottom: inset;
     padding-bottom: 5px;
+    width: 32%;
+}
+
+.thNull {
+    text-align: center;
+    border-bottom: inset;
+    padding-bottom: 5px;
+    width: 10%;
+}
+
+.tBody {
+    width: 100%;
 }

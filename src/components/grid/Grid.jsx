@@ -14,17 +14,17 @@ export default function Grid({itens, setItens}) {
 
     return (
         <React.Fragment>
-            <table className="table" border={1}>
+            <table className="table">
                 <thead>
                     <tr className="tr">
                         <th className="th">Descrição</th>
                         <th className="th">Valor</th>
                         <th className="th">Tipo</th>
-                        <th></th>
+                        <th className="thNull"> </th>
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody className="tBody">
                     {itens?.map((item, i) => (
                         <GridItem key={i} item={item} onDelete={onDelete}/>
                     ))}

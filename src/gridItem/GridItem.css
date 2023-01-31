@@ -1,6 +1,12 @@
 .td {
     text-align: center;
-    word-break: break-all;
+    padding-top: 8px ;
+}
+
+.trContent {
+    width: auto;
+    border: 1px solid red;
+    width: 1120px;
 }
 
 svg {
