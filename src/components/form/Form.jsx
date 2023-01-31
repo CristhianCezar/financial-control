@@ -1,11 +1,14 @@
 import React, {useState} from "react";
+import Grid from "../grid/Grid";
 import './Form.css';
 
-export default prosp => {
+export default ({handleAdd, transactionsList, setTransactionsList}) => {
 
         const [desc, setDesc] = useState("");
         const [amount, setAmount] = useState(""); 
         const [isExpense, setIsExpense] = useState(false);
+
+        const generateID = () => Math.round(Math.random() * 1000);
 
         const handlesalve= () => {
             if(!desc || !amount) {
@@ -15,7 +18,19 @@ export default prosp => {
                 alert("O valor tem que ser positivo!");
                 return;
             }
-        }
+
+            const transaction = {
+                id: generateID(),
+                desc: desc,
+                amount: amount,
+                expense: isExpense,
+            };
+
+            handleAdd(transaction);
+
+            setDesc("");
+            setAmount("");
+        };
 
         return (
             <div className="form">
@@ -33,7 +48,7 @@ export default prosp => {
                     <div className="radioGroup">
                         <input type="radio" name="group1" id="rIncome" defaultChecked onChange={() => setIsExpense(!isExpense)}/>
                         <label htmlFor="rIncome">Entrada</label>
-                        <input type="radio" name="group1" id="rExpenses" defaultChecked onChange={() => setIsExpense(!isExpense)}/>
+                        <input type="radio" name="group1" id="rExpenses" onChange={() => setIsExpense(!isExpense)}/>
                         <label htmlFor="rExpenses">Saída</label>
                     </div>
                 </div>
@@ -41,6 +56,8 @@ export default prosp => {
                 <div className="inputContent">
                     <button className="button" onClick={handlesalve}>Adicionar</button>
                 </div>
+                <Grid itens={transactionsList} setItens={setTransactionsList}/>
             </div>
+            
         )
  }
